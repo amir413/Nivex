@@ -27,6 +27,7 @@ const Footer = () => {
                         <span>|</span>
                         <Link to="/products">Products</Link>
                     </div>
+                    <p className="text-sm sm:text-base md:text-lg self-center">Created and designed by <a className = "text-gray-400" href="https://www.arixy.tech/">arixy tech</a></p>
                 </div>
 
                 {/* Bottom centered social media section */}
