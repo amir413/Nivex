@@ -101,7 +101,7 @@ const FruitsData = [
     description: [
       "We started with chillies in 2000.",
       "We export around 300 tons of chillies annually.",
-      "We are one of the first exporters of chillies from southern Egypt, with a season running from May to August."
+      "We are one of the first exporters of chillies from southern Egypt."
     ],
     calendarData: [
       { name: "Capsicum", months: Array(12).fill(true) },
