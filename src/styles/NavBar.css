@@ -1,0 +1,51 @@
+.burger-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+}
+
+.burger-menu div {
+  width: 24px;
+  height: 2px;
+  background: white;
+  border-radius: 10px;
+  transition: all 0.3s linear;
+  position: relative;
+  transform-origin: 1px;
+}
+
+.burger-menu .line2 {
+  width: 16px;
+}
+
+.burger-menu:hover .line2 {
+  width: 24px;
+}
+
+.burger-menu.open .line1 {
+  transform: rotate(45deg);
+}
+
+.burger-menu.open .line2 {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.burger-menu.open .line3 {
+  transform: rotate(-45deg);
+}
+
+.absolute {
+  position: absolute;
+}
+
+.backdrop-blur-xl {
+  backdrop-filter: blur(10px);
+}
