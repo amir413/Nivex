@@ -87,7 +87,18 @@ const FruitsData = [
       { name: "Starlight", months: [false, false, false, false, true, true, false, false, false, false, false, false] },
       { name: "Red Globe", months: [false, false, false, false, false, false, true, true, false, false, false, false] },
       { name: "Crimson", months: [false, false, false, false, false, false, true, true, false, false, false, false] },
-      { name: "Autumn crisp", months: [false, false, false, false, false, false, true, true, false, false, false, false] }
+      { name: "Autumn crisp", months: [false, false, false, false, false, false, true, true, false, false, false, false] },
+      { name: "Ruby Rush", months: [false, false, false, false, false, false, true, true, false, false, false, false] },
+      { name: "Mid Night", months: [false, false, false, false, false, true, false, false, false, false, false, false] },
+      { name: "Applause", months: [false, false, false, false, false, false, false, true, true, false, false, false] },
+      { name: "Epic Crisp", months: [false, false, false, false, false, false, false, false, true, true, false, false] },
+      { name: "Sable Seedless", months: [false, false, false, false, false, false, true, true, false, false, false, false] },
+      { name: "Scarlotta Seedless", months: [false, false, false, false, false, false, false, true, true, false, false, false] },
+      { name: "Black Glory", months: [false, false, false, false, false, true, false, false, false, false, false, false] },
+      { name: "Mid Night Beauty", months: [false, false, false, false, false, true, true, false, false, false, false, false] },
+      { name: "Sweet Celebration", months: [false, false, false, false, false, false, false, true, true, false, false, false] },
+      { name: "Sweet Glob", months: [false, false, false, false, false, false, false, false, true, true, false, false] },
+      { name: "ivory", months: [false, false, false, false, false, true, true, false, false, false, false, false] },
     ]
   },
   {
