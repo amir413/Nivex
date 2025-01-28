@@ -9,13 +9,13 @@ import farm4 from '../assets/images/2024_12_22_13_58_IMG_2843.jpg';
 import farm5 from '../assets/images/grapes45.jpg';
 import farm6 from '../assets/images/grappes.jpg';
 import farm7 from '../assets/images/pexels-robbif-28214194.jpg';
-import farm1white from '../assets/images/grapes.jpg';
-import farm2white from '../assets/images/C0050T01.jpg';
-import farm3white from '../assets/images/2024_12_20_02_59_IMG_2821.PNG.png';
+import farm1white from '../assets/images/2024_12_20_02_59_IMG_2821.PNG.png';
+import farm2white from '../assets/images/IMG_8437.jpg';
+import farm3white from '../assets/images/IMG_7517.png';
 import farm4white from '../assets/images/2024_12_22_13_58_IMG_2843.jpg';
-import farm5white from '../assets/images/2024_12_22_13_54_IMG_2863.jpg';
-import farm6white from '../assets/images/2024_12_22_13_51_IMG_2867.jpg';
-import farm7white from '../assets/images/2024_12_22_13_48_IMG_2877.jpg';
+import farm5white from '../assets/images/grapes45.jpg';
+import farm6white from '../assets/images/grappes.jpg';
+import farm7white from '../assets/images/pexels-robbif-28214194.jpg';
 
 const Farms = () => {
   const images = [farm1, farm2, farm3, farm4, farm5, farm6, farm7];

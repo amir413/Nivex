@@ -5,6 +5,7 @@ import chilliImage from '../assets/images/chilli.png';
 import greenbeansImage from '../assets/images/green-beans.jpg';
 import peasImage from '../assets/images/pngegg.png';
 import springonionImage from '../assets/images/springonion.png';
+import sweetpotato from '../assets/images/—Pngtree—table full of sweet potato_4668947.png';
 
 const FruitsData = [
   {
@@ -48,32 +49,12 @@ const FruitsData = [
     ]
   },
   {
-    title: "Strawberries",
-    color: "#ef4444",
-    image: strawberryImage,
-    details: {
-      tonnage: 1400,
-      varieties: ["Festival", "Fortuna", "Winter Down"]
-    },
-    description: [
-      "Nivex entered the strawberry business in 1998.",
-      "Currently, we are testing and evaluating varieties from the US, Italy, Spain, and the UK. We research various greenhouse sizes, substrate mixtures, and production locations in Egypt.",
-      "We believe the nursing stage is crucial in strengthening Egyptian strawberries' market position.",
-      "We offer various packing formats upon request, with our main varieties including Eliana, Fortuna, Red Merlin, Winter Down, and Festival."
-    ],
-    calendarData: [
-      { name: "Festival", months: [true, true, true, true, true, false, false, false, false, false, true, true] },
-      { name: "Fortuna", months: [true, true, true, true, true, false, false, false, false, false, true, true] },
-      { name: "Winter Down", months: [true, true, true, true, true, false, false, false, false, false, true, true] }
-    ]
-  },
-  {
     title: "Grapes",
     color: "#c7ea46",
     image: grapesImage,
     details: {
       tonnage: 2000,
-      varieties: ["Sugraone", "Flame", "Prime", "Starlight", "Red Globe", "Crimson"]
+      varieties: ["Sugraone", "Flame", "Prime", "Starlight", "Red Globe", "Crimson","Autumn crisp","Black Glory","Mid Night Beauty","Sweet Celebration","Sweet Glob","ivory"]
     },
     description: [
       "We began grape production in 2002.",
@@ -88,17 +69,51 @@ const FruitsData = [
       { name: "Red Globe", months: [false, false, false, false, false, false, true, true, false, false, false, false] },
       { name: "Crimson", months: [false, false, false, false, false, false, true, true, false, false, false, false] },
       { name: "Autumn crisp", months: [false, false, false, false, false, false, true, true, false, false, false, false] },
-      { name: "Ruby Rush", months: [false, false, false, false, false, false, true, true, false, false, false, false] },
-      { name: "Mid Night", months: [false, false, false, false, false, true, false, false, false, false, false, false] },
-      { name: "Applause", months: [false, false, false, false, false, false, false, true, true, false, false, false] },
-      { name: "Epic Crisp", months: [false, false, false, false, false, false, false, false, true, true, false, false] },
-      { name: "Sable Seedless", months: [false, false, false, false, false, false, true, true, false, false, false, false] },
-      { name: "Scarlotta Seedless", months: [false, false, false, false, false, false, false, true, true, false, false, false] },
       { name: "Black Glory", months: [false, false, false, false, false, true, false, false, false, false, false, false] },
       { name: "Mid Night Beauty", months: [false, false, false, false, false, true, true, false, false, false, false, false] },
       { name: "Sweet Celebration", months: [false, false, false, false, false, false, false, true, true, false, false, false] },
       { name: "Sweet Glob", months: [false, false, false, false, false, false, false, false, true, true, false, false] },
       { name: "ivory", months: [false, false, false, false, false, true, true, false, false, false, false, false] },
+    ]
+  },
+  {
+    title: "sweet potato",
+    color: " #FD9530",
+    image: sweetpotato,
+    details: {
+      tonnage: 3000,
+      varieties: ["Beauregard"]
+    },
+    description: [
+      "Nivex started with sweet potato in 2005.",
+      "Our sweet potato farm is thriving, producing some of the finest, sweetest potatoes you'll ever taste. With rich, fertile soil and plenty of ",
+      "care, we ensure every harvest is packed with flavor and nutrients. The vibrant orange hue and natural sweetness of our sweet potatoes make them perfect for a variety of dishes, from savory to sweet. Our ",
+      "commitment to sustainable farming practices means we're not only growing incredible crops but also protecting the land for future harvests. It's not just a farm; it's a labor of love, delivering quality you can taste in every bite."
+    ],
+    calendarData: [
+      { name: "Beauregard", months: [false, false, false, true, true, true, false, false, false, false, false, false] }
+    ]
+  },
+  {
+    title: "Strawberries",
+    color: "#ef4444",
+    image: strawberryImage,
+    details: {
+      tonnage: 1400,
+      varieties: ["Festival", "Fortuna", "Winter Down","Sensation","Brilliance "]
+    },
+    description: [
+      "Nivex entered the strawberry business in 1998.",
+      "Currently, we are testing and evaluating varieties from the US, Italy, Spain, and the UK. We research various greenhouse sizes, substrate mixtures, and production locations in Egypt.",
+      "We believe the nursing stage is crucial in strengthening Egyptian strawberries' market position.",
+      "We offer various packing formats upon request, with our main varieties including Eliana, Fortuna, Red Merlin, Winter Down, and Festival."
+    ],
+    calendarData: [
+      { name: "Festival", months: [true, true, true, true, true, false, false, false, false, false, true, true] },
+      { name: "Fortuna", months: [true, true, true, true, true, false, false, false, false, false, true, true] },
+      { name: "Winter Down", months: [true, true, true, true, true, false, false, false, false, false, true, true] },
+      { name: "Sensation", months: [true, true, true, false, false, false, false, false, false, false, false, true] },
+      { name: "Brilliance", months: [true, true, true, true, false, false, false, false, false, false, false, true] }
     ]
   },
   {
@@ -156,7 +171,7 @@ const FruitsData = [
     calendarData: [
       { name: "Spring Onion", months: [true, true, true, true, false, false, false, false, false, true, true, true] }
     ]
-  }
+  },
 ];
 
 export default FruitsData;
