@@ -59,7 +59,13 @@ const ContactUs = () => {
           <div className="space-y-8">
             <div>
               <h2 className="text-xl sm:text-lg md:text-xl font-bold mb-2">Call Us</h2>
-              <p className="text-gray-600">(+20) 01270603520</p>
+              <p className="text-gray-600">
+  (+20) 01270603520 <br />
+  <a href="mailto:info@nivexfarms.com" className="text-blue-600 hover:underline">
+    info@nivexfarms.com
+  </a>
+</p>
+
             </div>
             <div>
               <h2 className="text-xl sm:text-lg md:text-xl  font-bold mb-2">Visit Us</h2>
