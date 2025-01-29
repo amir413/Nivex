@@ -91,7 +91,7 @@ const FruitsData = [
       "commitment to sustainable farming practices means we're not only growing incredible crops but also protecting the land for future harvests. It's not just a farm; it's a labor of love, delivering quality you can taste in every bite."
     ],
     calendarData: [
-      { name: "Beauregard", months: [false, false, false, true, true, true, false, false, false, false, false, false] }
+      { name: "Beauregard", months: [false, false, false, true, true, true, true, true, true, false, false, false] }
     ]
   },
   {
