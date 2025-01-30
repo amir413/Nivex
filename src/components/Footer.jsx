@@ -27,14 +27,14 @@ const Footer = () => {
                         <span>|</span>
                         <Link to="/products">Products</Link>
                     </div>
-                    <p className="text-sm sm:text-base md:text-lg self-center">Created and designed by: <a className = "text-gray-400" href="https://www.arixy.tech/">arixy tech</a></p>
+                    <p className="text-sm sm:text-base md:text-lg self-center">developed and designed by: <a className = "text-gray-400" href="https://www.arixy.tech/">arixy tech</a></p>
                 </div>
 
                 {/* Bottom centered social media section */}
                 <div className="flex flex-col items-center md:w-1/3">
                     <div className="flex items-center space-x-2 sm:space-x-3 md:space-x-5">
                         <h3 className="text-xs sm:text-sm md:text-base mb-0">Follow us on:</h3>
-                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.facebook.com/nivexfarms/" target="_blank" rel="noopener noreferrer">
                             <FontAwesomeIcon icon={faFacebook} size="2x" />
                         </a>
                     </div>

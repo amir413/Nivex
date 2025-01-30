@@ -29,7 +29,7 @@ const Farms = () => {
     'El Khatatba farm spans an impressive 120 feddans, dedicated to the cultivation of high-quality grapes. Each season, the farm yields an abundant 800 tons of grapes, showcasing both the scale of production and the farm’s commitment to excellence in agricultural practices.',
     'Rigwa Farm covers 75 feddans, fully dedicated to the cultivation of high-quality onions. With a focus on sustainable farming techniques, the farm produces an abundant harvest each season, ensuring a reliable supply of fresh, premium onions.'
   ];
-  const texts = ['Kafr daod', 'Pharaohs', 'Abu Azaim1', 'Abu Azaim 2', 'Cairo 2000', 'El Khatatba', 'Rigwa'];
+  const texts = ['Kafr daod', 'Pharaohs', 'Abu AL-Azaim1', 'Abu AL-Azaim 2', 'Cairo 2000', 'Al Khatatba', 'Rigwa'];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [rotationDegree, setRotationDegree] = useState(0);
