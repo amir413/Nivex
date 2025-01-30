@@ -23,7 +23,7 @@ const ContactUs = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:5000/send-email", {
+      const response = await fetch("https://nivex-backend.vercel.app/send-email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -59,7 +59,7 @@ const ContactUs = () => {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 px-4 md:px-8 mb-10">
           {/* Contact Form */}
           <div className="bg-white p-6">
-            <h2 className="text-2xl sm:text-xl font-bold mb-4">We’re happy to hear from you!</h2>
+            <h2 className="text-2xl sm:text-xl font-bold mb-4">We are happy to hear from you!</h2>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <input
