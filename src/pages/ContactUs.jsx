@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios"; // Import axios
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -6,7 +7,7 @@ const ContactUs = () => {
     from_email: "",
     phoneNumber: "",
     message: "",
-    subject: "",  // Add the subject field
+    subject: "",
   });
 
   const [status, setStatus] = useState(""); // Success/Error message
@@ -23,22 +24,18 @@ const ContactUs = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("https://nivex-backend.vercel.app/send-email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
+      const response = await axios.post("https://nivex-backend.vercel.app/send-email", formData, {
+        headers: { "Content-Type": "application/json" },
       });
 
-      if (response.ok) {
+      if (response.status === 200) {
         setStatus("Email sent successfully!");
         setFormData({
           from_name: "",
           from_email: "",
           phoneNumber: "",
           message: "",
-          subject: "", // Reset subject field
+          subject: "",
         });
       } else {
         setStatus("Failed to send email. Please try again.");
@@ -80,15 +77,15 @@ const ContactUs = () => {
                 className="w-full px-4 py-2 border-b bg-white focus:outline-none focus:ring-2 focus:ring-orange-500"
                 required
               />
-                <input
-                  type="text"
-                  name="subject"
-                  placeholder="Subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border-b bg-white focus:outline-none focus:ring-2 focus:ring-orange-500"
-                  required
-                />
+              <input
+                type="text"
+                name="subject"
+                placeholder="Subject"
+                value={formData.subject}
+                onChange={handleChange}
+                className="w-full px-4 py-2 border-b bg-white focus:outline-none focus:ring-2 focus:ring-orange-500"
+                required
+              />
               <input
                 type="tel"
                 name="phoneNumber"
@@ -116,9 +113,7 @@ const ContactUs = () => {
             </form>
 
             {status && (
-              <p
-                className={`mt-4 text-center ${status.includes("successfully") ? "text-green-600" : "text-red-600"}`}
-              >
+              <p className={`mt-4 text-center ${status.includes("successfully") ? "text-green-600" : "text-red-600"}`}>
                 {status}
               </p>
             )}
@@ -140,9 +135,7 @@ const ContactUs = () => {
 
             <div>
               <h2 className="text-xl font-bold mb-2">Visit Us</h2>
-              <p className="text-gray-600">
-                El Obour city - 2nd industrial zone part 6 - block 20002
-              </p>
+              <p className="text-gray-600">El Obour city - 2nd industrial zone part 6 - block 20002</p>
             </div>
 
             <div>
