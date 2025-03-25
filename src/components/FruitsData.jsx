@@ -1,11 +1,11 @@
-import onionImage from '../assets/images/onion.png';
-import strawberryImage from '../assets/images/strawberry.png';
-import grapesImage from '../assets/images/delicious-bunch-grapes.jpg';
-import chilliImage from '../assets/images/chilli.png';
-import greenbeansImage from '../assets/images/green-beans.jpg';
-import peasImage from '../assets/images/pngegg.png';
-import springonionImage from '../assets/images/springonion.png';
-import sweetpotato from '../assets/images/—Pngtree—table full of sweet potato_4668947.png';
+import onionImage from '../assets/images/onion.webp';
+import strawberryImage from '../assets/images/strawberry.webp';
+import grapesImage from '../assets/images/delicious-bunch-grapes.webp';
+import chilliImage from '../assets/images/chilli.webp';
+import greenbeansImage from '../assets/images/green-beans.webp';
+import peasImage from '../assets/images/pngegg.webp';
+import springonionImage from '../assets/images/springonion.webp';
+import sweetpotato from '../assets/images/—Pngtree—table full of sweet potato_4668947.webp';
 
 const FruitsData = [
   {
