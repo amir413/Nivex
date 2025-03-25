@@ -1,19 +1,18 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import Logo from '../assets/logo.png';
-import '../styles/NavBar.css';
+import Logo from '../assets/logo.webp'; // Converted to WebP format
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrollDirection, setScrollDirection] = useState('down');
   const lastScrollTop = useRef(0);
+  const [scrollDirection, setScrollDirection] = useState('up');
   const menuRef = useRef(null);
   const navRef = useRef(null);
 
   // Memoized toggle function
   const toggleMenu = useCallback(() => setIsOpen(prev => !prev), []);
 
-  // Close menu when clicking outside
+  // Click outside handler
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target) && 
@@ -26,34 +25,41 @@ const NavBar = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Optimized scroll handler
+  // Optimized scroll handler with debouncing
   useEffect(() => {
     let timeoutId = null;
-    
-    const handleScroll = () => {
-      // Clear previous timeout
-      if (timeoutId) {
-        clearTimeout(timeoutId);
+    let requestId = null;
+
+    const updateScrollDirection = () => {
+      const scrollTop = window.pageYOffset;
+      const direction = scrollTop > lastScrollTop.current ? 'down' : 'up';
+      
+      if (direction !== scrollDirection) {
+        setScrollDirection(direction);
       }
       
-      // Set new timeout with debounce
-      timeoutId = setTimeout(() => {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        if (scrollTop > lastScrollTop.current) {
-          setScrollDirection('down');
-        } else {
-          setScrollDirection('up');
-        }
-        lastScrollTop.current = scrollTop <= 0 ? 0 : scrollTop;
-      }, 100);
+      lastScrollTop.current = scrollTop <= 0 ? 0 : scrollTop;
+    };
+
+    const handleScroll = () => {
+      if (!requestId) {
+        requestId = requestAnimationFrame(() => {
+          updateScrollDirection();
+          requestId = null;
+        });
+      }
+      
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(updateScrollDirection, 100);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      if (timeoutId) clearTimeout(timeoutId);
+      cancelAnimationFrame(requestId);
+      clearTimeout(timeoutId);
     };
-  }, []);
+  }, [scrollDirection]);
 
   // Menu items data
   const menuItems = [
@@ -69,53 +75,55 @@ const NavBar = () => {
     <>
       <nav
         ref={navRef}
-        className={`text-white flex justify-between bg-black bg-opacity-20 p-6 fixed w-full z-50 backdrop-blur-xl transition-transform duration-500 ${
-          scrollDirection === 'down' ? '-translate-y-full' : 'translate-y-0'
-        }`}
+        className="fixed top-0 left-0 right-0 flex justify-between items-center p-4 bg-black bg-opacity-20 text-white z-50 transition-transform duration-300 backdrop-blur-xl"
+        style={{
+          transform: scrollDirection === 'down' ? 'translateY(-100%)' : 'translateY(0)'
+        }}
       >
-        <div>
-          <Link to="/">
-            <img 
-              src={Logo} 
-              alt="Logo" 
-              className="w-24" 
-              width="96"
-              height="auto"
-              loading="eager"
-            />
-          </Link>
-        </div>
-        
-        <div className="hidden lg:flex gap-20 mr-10 self-center">
+        <Link to="/" className="inline-block" aria-label="Home">
+          <img
+            src={Logo}
+            alt="Company Logo"
+            width="80"
+            height="34"
+            loading="eager"
+            fetchpriority="high"
+            className="w-20 h-auto"
+          />
+        </Link>
+
+        {/* Desktop Navigation - loaded after critical render */}
+        <div className="hidden lg:flex gap-5 xl:gap-10 mr-4">
           {menuItems.map((item) => (
             <Link 
               key={item.path}
               to={item.path}
-              className="hover:opacity-80 transition-opacity"
+              className="hover:opacity-80 transition-opacity duration-200"
             >
               {item.label}
             </Link>
           ))}
         </div>
-        
-        <div className="lg:hidden flex items-center">
-          <button
-            onClick={toggleMenu}
-            className={`burger-menu ${isOpen ? 'open' : ''}`}
-            aria-label="Toggle menu"
-            aria-expanded={isOpen}
-          >
-            <div className="burger-line line1"></div>
-            <div className="burger-line line2"></div>
-            <div className="burger-line line3"></div>
-          </button>
-        </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          onClick={toggleMenu}
+          className={`burger-menu lg:hidden ${isOpen ? 'open' : ''}`}
+          aria-label="Toggle menu"
+          aria-expanded={isOpen}
+        >
+          <span className="burger-line line1"></span>
+          <span className="burger-line line2"></span>
+          <span className="burger-line line3"></span>
+        </button>
       </nav>
-      
+
+      {/* Mobile Menu Dropdown */}
       {isOpen && (
         <div
           ref={menuRef}
-          className="fixed top-[88px] right-10 p-5 bg-black bg-opacity-20 rounded-xl flex flex-col items-center lg:hidden backdrop-blur-xl z-50"
+          className="fixed top-[72px] right-4 p-4 bg-black bg-opacity-20 rounded-xl flex flex-col items-center lg:hidden backdrop-blur-xl z-40"
+          aria-hidden={!isOpen}
         >
           {menuItems.map((item) => (
             <Link
@@ -129,6 +137,57 @@ const NavBar = () => {
           ))}
         </div>
       )}
+
+      {/* Critical CSS Inlined */}
+      <style>{`
+        .burger-menu {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          width: 24px;
+          height: 24px;
+          background: transparent;
+          border: none;
+          cursor: pointer;
+          padding: 0;
+          z-index: 10;
+        }
+        .burger-line {
+          width: 24px;
+          height: 2px;
+          background: white;
+          border-radius: 10px;
+          transition: all 0.3s linear;
+          position: relative;
+          transform-origin: 1px;
+        }
+        .burger-menu .line2 {
+          width: 16px;
+          transition: all 0.3s linear, opacity 0.1s linear;
+        }
+        .burger-menu:hover .line2 {
+          width: 24px;
+        }
+        .burger-menu.open .line1 {
+          transform: rotate(45deg);
+        }
+        .burger-menu.open .line2 {
+          opacity: 0;
+          transform: translateX(20px);
+        }
+        .burger-menu.open .line3 {
+          transform: rotate(-45deg);
+        }
+        nav {
+          will-change: transform;
+          contain: layout paint style;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          nav, .burger-line {
+            transition: none !important;
+          }
+        }
+      `}</style>
     </>
   );
 };
